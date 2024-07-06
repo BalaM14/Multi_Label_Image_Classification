@@ -1,0 +1,8 @@
+AUGMENTATION: True
+IMAGE_SIZE: [224, 224, 3]       #  as per VGG 16 model
+BATCH_SIZE: 16
+INCLUDE_TOP: False
+EPOCHS: 5
+CLASSES: 2
+WEIGHTS: imagenet     # imagenet is a dataset where the VGG 16 is already pretrained in this dataset & taking their respective weights
+LEARNING_RATE: 0.01   

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Bala/Deep_CNN_Classifier/research/mlflow_dir/mlruns/0/a3ac43552abe4a9ab9479100e7c478cd/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a3ac43552abe4a9ab9479100e7c478cd
+run_name: enchanting-zebra-813
+run_uuid: a3ac43552abe4a9ab9479100e7c478cd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719130283166
+status: 1
+tags: []
+user_id: balaj
