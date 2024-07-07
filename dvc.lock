@@ -5,32 +5,32 @@ stages:
     deps:
     - path: configs/config.yaml
       hash: md5
-      md5: 4dc5787b390da706067b855d03dadcf5
-      size: 831
+      md5: 4e2e486db16223d1f6ae31199b4a2401
+      size: 788
     - path: src/deepClassifier/components/data_ingestion.py
       hash: md5
-      md5: 5d42904cfcb4b2646562c46b81f37bc7
-      size: 1927
+      md5: f8263d4b7857bdbb2f3cdfe2e03057f6
+      size: 2427
     outs:
-    - path: artifacts/data_ingestion/PetImages
+    - path: artifacts/data_ingestion/natural_images
       hash: md5
-      md5: 3a5cf86541f22c236620ce5b952ad684.dir
-      size: 848866410
-      nfiles: 24998
+      md5: 5925456213aec33761458533ff9ab96c.dir
+      size: 179701596
+      nfiles: 6899
   prepare_base_model:
     cmd: python src/deepClassifier/pipeline/stage02_prepare_base_model.py
     deps:
     - path: configs/config.yaml
       hash: md5
-      md5: 4dc5787b390da706067b855d03dadcf5
-      size: 831
+      md5: 4e2e486db16223d1f6ae31199b4a2401
+      size: 788
     - path: src/deepClassifier/pipeline/stage02_prepare_base_model.py
       hash: md5
       md5: 1e8739c62bf962b1d592626ab0c315e2
       size: 777
     params:
       params.yaml:
-        CLASSES: 2
+        CLASSES: 8
         IMAGE_SIZE:
         - 224
         - 224
@@ -41,26 +41,26 @@ stages:
     outs:
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: 02677edcb830924b983288d9f4cda471.dir
-      size: 118059248
+      md5: 096220446da6c84b9456a2d03a20e57f.dir
+      size: 118661360
       nfiles: 2
   training:
     cmd: python src/deepClassifier/pipeline/stage03_training.py
     deps:
-    - path: artifacts/data_ingestion/PetImages
+    - path: artifacts/data_ingestion/natural_images
       hash: md5
-      md5: 3a5cf86541f22c236620ce5b952ad684.dir
-      size: 848866410
-      nfiles: 24998
+      md5: 5925456213aec33761458533ff9ab96c.dir
+      size: 179701596
+      nfiles: 6899
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: 02677edcb830924b983288d9f4cda471.dir
-      size: 118059248
+      md5: 096220446da6c84b9456a2d03a20e57f.dir
+      size: 118661360
       nfiles: 2
     - path: configs/config.yaml
       hash: md5
-      md5: 4dc5787b390da706067b855d03dadcf5
-      size: 831
+      md5: 4e2e486db16223d1f6ae31199b4a2401
+      size: 788
     - path: src/deepClassifier/components/prepare_callback.py
       hash: md5
       md5: 77567ec945e1de6a8c840e21faa4affe
@@ -81,24 +81,24 @@ stages:
     outs:
     - path: artifacts/training/model.h5
       hash: md5
-      md5: e0becf57c65220d71e805e41a0d753ec
-      size: 59340720
+      md5: aba671534394c5852dd10f708591519f
+      size: 60544944
   evaluation:
     cmd: python src/deepClassifier/pipeline/stage04_evaluation.py
     deps:
-    - path: artifacts/data_ingestion/PetImages
+    - path: artifacts/data_ingestion/natural_images
       hash: md5
-      md5: 3a5cf86541f22c236620ce5b952ad684.dir
-      size: 848866410
-      nfiles: 24998
+      md5: 5925456213aec33761458533ff9ab96c.dir
+      size: 179701596
+      nfiles: 6899
     - path: artifacts/training/model.h5
       hash: md5
-      md5: e0becf57c65220d71e805e41a0d753ec
-      size: 59340720
+      md5: aba671534394c5852dd10f708591519f
+      size: 60544944
     - path: configs/config.yaml
       hash: md5
-      md5: 4dc5787b390da706067b855d03dadcf5
-      size: 831
+      md5: 4e2e486db16223d1f6ae31199b4a2401
+      size: 788
     - path: src/deepClassifier/pipeline/stage04_evaluation.py
       hash: md5
       md5: bde719530eb4aa8bd73dbedb5a76e285
@@ -113,5 +113,5 @@ stages:
     outs:
     - path: scores.json
       hash: md5
-      md5: bb224d45b472ca88a60c6d319ec3cfc5
-      size: 74
+      md5: 7af2c045aa8fdc9b26757fa685d0acee
+      size: 73

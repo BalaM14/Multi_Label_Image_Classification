@@ -8,7 +8,7 @@ import zipfile
 """
 ### Created By : Bala Murugan
 #### LinkedIn : https://www.linkedin.com/in/balamurugan14/
-# Binary Image Classification
+# Multi Label Image Classification
 """
 model = tf.keras.models.load_model("model.h5")
 file_uploaded = st.file_uploader("Upload", type=["png","jpg","jpeg"], accept_multiple_files=True)
@@ -33,8 +33,26 @@ for file in file_uploaded:
         with grid[col]:
             if argmax_index[0] == 0:
                 st.image(image)
-                st.header('\t :blue[CAT]')
+                st.header('\t :blue[Aeroplane]')
+            elif argmax_index[0] == 1:
+                st.image(image)
+                st.header('\t :blue[Car]')
+            elif argmax_index[0] == 2:
+                st.image(image)
+                st.header('\t :blue[Cat]')
+            elif argmax_index[0] == 3:
+                st.image(image)
+                st.header('\t :blue[Dog]')
+            elif argmax_index[0] == 4:
+                st.image(image)
+                st.header('\t :blue[Flower]')
+            elif argmax_index[0] == 5:
+                st.image(image)
+                st.header('\t :blue[Fruit]')
+            elif argmax_index[0] == 6:
+                st.image(image)
+                st.header('\t :blue[Motorbike]')
             else:
                 st.image(image)
-                st.header('\t :red[DOG]')
+                st.header('\t :red[Person]')
         col = (col + 1) % row_size
